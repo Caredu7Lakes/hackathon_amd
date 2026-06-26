@@ -1,0 +1,10 @@
+{
+  "id": "cpic_slco1b1_sinvastatina",
+  "titulo": "Diretriz CPIC: SLCO1B1 e miopatia por sinvastatina",
+  "fonte": "CPIC Guideline (diretriz clinica formal)",
+  "eixo": "farma",
+  "gene": "SLCO1B1",
+  "rsid": "rs4149056",
+  "evidencia": "alta",
+  "texto": "A diretriz do Clinical Pharmacogenetics Implementation Consortium (CPIC) para SLCO1B1 e sinvastatina classifica como ALTA a evidencia que liga variantes de funcao reduzida do SLCO1B1 ao risco de miopatia induzida por sinvastatina. O alelo de risco e o C de rs4149056; o genotipo TT (sem o alelo C) indica funcao normal do transportador e menor risco de miopatia. Fonte de evidencia mais forte do corpus por ser diretriz clinica formal."
+}

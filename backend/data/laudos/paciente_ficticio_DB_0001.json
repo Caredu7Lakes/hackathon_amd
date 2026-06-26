@@ -1,0 +1,111 @@
+{
+  "paciente_id": "ficticio_DB_0001",
+  "doencas": [
+    {
+      "doenca": "Diabetes tipo 2",
+      "risco_percentual": 50.17,
+      "faixa": "Risco aumentado",
+      "marcadores": [
+        { "rsid": "rs35011184", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.0010108 },
+        { "rsid": "rs17747324", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00099523 },
+        { "rsid": "rs12243326", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00094862 },
+        { "rsid": "rs56087297", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00094723 },
+        { "rsid": "rs12255372", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00094679 },
+        { "rsid": "rs4575195", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00089189 },
+        { "rsid": "rs4132670", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00089064 },
+        { "rsid": "rs7903146", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00087869 },
+        { "rsid": "rs7901695", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00087781 },
+        { "rsid": "rs7074440", "gene": "TCF7L2", "cromossomo": "10", "efeito": 0.00087664 }
+      ]
+    },
+    {
+      "doenca": "Doenca arterial coronariana",
+      "risco_percentual": 49.98,
+      "faixa": "Risco padrao",
+      "marcadores": [
+        { "rsid": "rs10455872", "gene": "LPA", "cromossomo": "6", "efeito": 0.018921 },
+        { "rsid": "rs7412", "gene": "APOE", "cromossomo": "19", "efeito": -0.018063 },
+        { "rsid": "rs9349379", "gene": "PHACTR1", "cromossomo": "6", "efeito": 0.0073269 },
+        { "rsid": "rs10080815", "gene": "SLC22A2", "cromossomo": "6", "efeito": 0.0064589 },
+        { "rsid": "rs3918226", "gene": "NOS3", "cromossomo": "7", "efeito": 0.0064464 },
+        { "rsid": "rs16986953", "gene": "intergenico", "cromossomo": "2", "efeito": 0.0063072 },
+        { "rsid": "rs660240", "gene": "CELSR2", "cromossomo": "1", "efeito": 0.0041186 },
+        { "rsid": "rs2075650", "gene": "PVRL2", "cromossomo": "19", "efeito": 0.0032092 },
+        { "rsid": "rs629301", "gene": "CELSR2", "cromossomo": "1", "efeito": 0.0031086 },
+        { "rsid": "rs646776", "gene": "CELSR2", "cromossomo": "1", "efeito": 0.0029338 }
+      ]
+    }
+  ],
+  "farma": [
+    {
+      "farmaco": "Metformina (Glifage)",
+      "genotipo": "C,C",
+      "interpretacao": "Predisposicao para maior taxa de resposta ao tratamento",
+      "marcadores": [
+        { "rsid": "rs11212617", "gene": "ATM", "cromossomo": "Moderado", "genotipo": "C,C" }
+      ]
+    },
+    {
+      "farmaco": "Sulfonilureias",
+      "genotipo": "C,T",
+      "interpretacao": "Predisposicao para maior taxa de resposta ao tratamento",
+      "marcadores": [
+        { "rsid": "rs5219", "gene": "KCNJ11", "cromossomo": "Moderado", "genotipo": "C,T" }
+      ]
+    },
+    {
+      "farmaco": "Atorvastatina (Lipitor)",
+      "genotipo": "C,C",
+      "interpretacao": "Predisposicao para menor taxa de resposta ao tratamento",
+      "marcadores": [
+        { "rsid": "rs7412", "gene": "APOE", "cromossomo": "Moderado", "genotipo": "C,C" }
+      ]
+    },
+    {
+      "farmaco": "Estatinas",
+      "genotipo": "C,G",
+      "interpretacao": "Predisposicao para manifestar disturbios musculares durante o tratamento com estatinas",
+      "marcadores": [
+        { "rsid": "rs4693075", "gene": "COQ2", "cromossomo": "Moderado", "genotipo": "C,G" }
+      ]
+    },
+    {
+      "farmaco": "Sinvastatina (Zocor)",
+      "genotipo": "T,T",
+      "interpretacao": "Sem predisposicao para desenvolver disturbios musculares durante o tratamento com sinvastatina",
+      "marcadores": [
+        { "rsid": "rs4149056", "gene": "SLCO1B1", "cromossomo": "Alto", "genotipo": "T,T" }
+      ]
+    }
+  ],
+  "fit": [
+    {
+      "caracteristica": "Indice de massa corporal (IMC)",
+      "interpretacao": "Predisposicao para IMC elevado",
+      "marcadores": [
+        { "rsid": "rs9939609", "gene": "FTO", "cromossomo": "16", "genotipo": "A,T" }
+      ]
+    },
+    {
+      "caracteristica": "Risco de obesidade",
+      "interpretacao": "Maior predisposicao para obesidade",
+      "marcadores": [
+        { "rsid": "rs1861868", "gene": "FTO", "cromossomo": "16", "genotipo": "T,C" }
+      ]
+    },
+    {
+      "caracteristica": "Armazenamento de gordura",
+      "interpretacao": "Maior predisposicao para armazenamento de gordura corporal",
+      "marcadores": [
+        { "rsid": "rs1421085", "gene": "FTO", "cromossomo": "16", "genotipo": "C,T" }
+      ]
+    },
+    {
+      "caracteristica": "Recuperacao da frequencia cardiaca apos exercicio fisico",
+      "interpretacao": "Predisposicao para recuperacao mais lenta da frequencia cardiaca",
+      "marcadores": [
+        { "rsid": "rs324640", "gene": "CHRM2", "cromossomo": "7", "genotipo": "G,A" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "metformina_atm_gwas",
+  "titulo": "GWAS: ATM rs11212617 e resposta glicemica a metformina",
+  "fonte": "Nature Genetics (GWAS)",
+  "eixo": "farma",
+  "gene": "ATM",
+  "rsid": "rs11212617",
+  "evidencia": "moderada",
+  "texto": "Estudo de associacao genomica ampla identificou o locus ATM, variante rs11212617, associado ao sucesso do tratamento glicemico com metformina, com odds ratio de aproximadamente 1,35 para alcance da meta de controle glicemico. Ressalva importante: a associacao nao foi replicada de forma consistente em todos os estudos posteriores; o Diabetes Prevention Program (DPP) nao confirmou o efeito. Apresentar como associacao real porem menos consolidada que a de SLCO1B1."
+}

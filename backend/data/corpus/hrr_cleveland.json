@@ -1,0 +1,10 @@
+{
+  "id": "hrr_cleveland",
+  "titulo": "Recuperacao cardiaca anormal e doenca coronariana",
+  "fonte": "Estudo Cleveland Clinic",
+  "eixo": "fit-doencas",
+  "gene": "CHRM2",
+  "rsid": "rs324640",
+  "evidencia": "forte-fenotipo",
+  "texto": "A recuperacao anormal da frequencia cardiaca apos exercicio mantem-se preditiva de morte mesmo apos ajuste para gravidade angiografica da doenca arterial coronariana, funcao ventricular e capacidade de exercicio. Conecta o painel Fit (recuperacao cardiaca lenta) ao painel de doencas (doenca arterial coronariana), com a ressalva de que a evidencia e forte para o fenotipo e fraca para o elo genotipo-fenotipo via CHRM2."
+}

@@ -1,0 +1,10 @@
+{
+  "id": "hrr_nejm",
+  "titulo": "Recuperacao da frequencia cardiaca pos-exercicio como preditor de mortalidade",
+  "fonte": "NEJM (1999)",
+  "eixo": "fit-doencas",
+  "gene": "CHRM2",
+  "rsid": "rs324640",
+  "evidencia": "forte-fenotipo",
+  "texto": "Uma recuperacao atenuada da frequencia cardiaca no primeiro minuto apos o exercicio e um forte preditor de mortalidade por todas as causas, independente da carga de trabalho atingida, da presenca de defeitos de perfusao miocardica e das variacoes de frequencia cardiaca durante o exercicio. Importante: este estudo mede o fenotipo (recuperacao observada), nao o genotipo. A ponte entre o marcador genetico CHRM2 rs324640 (predisposicao) e este fenotipo e mais fraca; o conector CHRM2 deve ser apresentado como brando."
+}

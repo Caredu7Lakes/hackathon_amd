@@ -1,0 +1,10 @@
+{
+  "id": "fto_dieta_interacao",
+  "titulo": "Interacao FTO x dieta mediterranea no risco de diabetes",
+  "fonte": "Estudo de interacao gene-dieta",
+  "eixo": "fit-nutri",
+  "gene": "FTO",
+  "rsid": "rs9939609",
+  "evidencia": "moderada",
+  "texto": "A associacao do FTO rs9939609 com diabetes tipo 2 e modulada pela dieta: o efeito do alelo de risco e maior quando a adesao a dieta mediterranea e baixa, e atenuado quando a adesao e alta. Sugere que fatores de estilo de vida interagem com a predisposicao genetica. Conecta o painel Fit/FTO ao painel Nutri (eficacia de dietas)."
+}

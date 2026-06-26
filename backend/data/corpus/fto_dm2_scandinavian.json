@@ -1,0 +1,10 @@
+{
+  "id": "fto_dm2_scandinavian",
+  "titulo": "FTO rs9939609 e risco de diabetes tipo 2 (meta-analise escandinava)",
+  "fonte": "Meta-analise de coortes escandinavas (n=41.504)",
+  "eixo": "fit-doencas",
+  "gene": "FTO",
+  "rsid": "rs9939609",
+  "evidencia": "forte",
+  "texto": "O alelo de risco do polimorfismo rs9939609 no gene FTO associa-se ao diabetes tipo 2 com odds ratio de aproximadamente 1,13. A associacao com diabetes incidente mantem odds ratio em torno de 1,16. Um achado central e que a associacao permanece estatisticamente significativa mesmo apos correcao para o indice de massa corporal, indicando que o FTO influencia o risco de diabetes em parte de forma independente do seu efeito sobre o peso corporal. Conecta o painel Fit (predisposicao a IMC elevado e obesidade) ao painel de doencas (risco de diabetes tipo 2)."
+}

@@ -1,0 +1,188 @@
+@import './fonts.css';
+
+/* ---- Tokens ---- */
+:root {
+  --azul-900: #0a2540;   /* titulos, texto forte */
+  --azul-700: #1456a0;   /* acento primario */
+  --azul-100: #e8f0fa;   /* fundos suaves */
+  --branco:   #ffffff;
+  --cinza-50: #f7f9fc;   /* fundo da pagina */
+  --cinza-200:#dde3ea;   /* bordas */
+  --cinza-500:#5b6876;   /* texto secundario */
+
+  --alta:      #1f7a4d;  /* verde sobrio — confianca alta */
+  --alta-bg:   #e7f3ec;
+  --moderada:  #b06d0a;  /* ambar — confianca moderada */
+  --moderada-bg:#fbf1e0;
+  --insuf:     #5b6876;  /* cinza neutro — limite reconhecido */
+  --insuf-bg:  #eef1f5;
+
+  --raio: 8px;
+  --sombra: 0 1px 3px rgba(10, 37, 64, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cinza-50);
+  color: var(--azul-900);
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+code, .mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* ---- Layout ---- */
+.app {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.app-header h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--azul-900);
+}
+.app-header .subtitulo {
+  margin: 0.25rem 0 0;
+  color: var(--cinza-500);
+  font-size: 1rem;
+}
+
+/* ---- Seletor ---- */
+.seletor {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+.seletor label { font-weight: 600; }
+.seletor select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--cinza-200);
+  border-radius: 6px;
+  background: var(--branco);
+  color: var(--azul-900);
+  cursor: pointer;
+}
+.seletor select:focus-visible {
+  outline: 2px solid var(--azul-700);
+  outline-offset: 1px;
+}
+.erro-inline { color: #b3261e; font-size: 0.9rem; }
+
+/* ---- Estados ---- */
+.vazio, .carregando, .erro {
+  padding: 2rem 1.25rem;
+  border-radius: var(--raio);
+  text-align: center;
+}
+.vazio { color: var(--cinza-500); }
+.carregando { color: var(--azul-700); background: var(--azul-100); }
+.erro { color: #b3261e; background: #fdecea; }
+
+/* ---- Leitura ---- */
+.leitura h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cinza-500);
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--cinza-200);
+}
+.leitura > p:first-of-type {
+  font-size: 1.05rem;
+  background: var(--branco);
+  padding: 1.25rem;
+  border-radius: var(--raio);
+  border: 1px solid var(--cinza-200);
+}
+
+/* ---- Cruzamentos: lista limpa, sem bullets ---- */
+.cruzamentos { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+.cruzamento {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-left: 4px solid var(--cinza-200);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--sombra);
+}
+.cruzamento.alta     { border-left-color: var(--alta); }
+.cruzamento.moderada { border-left-color: var(--moderada); }
+.cruzamento.baixa    { border-left-color: var(--insuf); }
+
+.afirmacao { margin: 0 0 0.6rem; }
+
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+.selo.alta     { color: var(--alta);     background: var(--alta-bg); }
+.selo.moderada { color: var(--moderada); background: var(--moderada-bg); }
+.selo.baixa    { color: var(--insuf);    background: var(--insuf-bg); }
+
+.fontes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+.fonte-chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--azul-700);
+  background: var(--azul-100);
+  padding: 0.15rem 0.45rem;
+  border-radius: 5px;
+}
+
+/* ---- Evidencia insuficiente: o diferencial honesto ---- */
+.evidencia-insuf {
+  margin-top: 2rem;
+  background: var(--insuf-bg);
+  border: 1px dashed var(--cinza-200);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem;
+}
+.evidencia-insuf h2 { border: 0; margin-top: 0; color: var(--insuf); }
+.evidencia-insuf ul { margin: 0; padding-left: 1.2rem; color: var(--cinza-500); }
+.evidencia-insuf li { margin: 0.3rem 0; }
+
+/* ---- Disclaimer ---- */
+.disclaimer {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--cinza-500);
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cruzamento { transition: border-left-color 0.2s; }
+}

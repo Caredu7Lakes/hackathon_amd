@@ -1,0 +1,10 @@
+{
+  "id": "metformina_atm_replicacao",
+  "titulo": "Replicacao do efeito de ATM na resposta a metformina",
+  "fonte": "Meta-analise de replicacao (multiplas coortes)",
+  "eixo": "farma",
+  "gene": "ATM",
+  "rsid": "rs11212617",
+  "evidencia": "moderada-inconsistente",
+  "texto": "Esforcos de replicacao do efeito do locus ATM (rs11212617) sobre a resposta a metformina produziram resultados mistos entre coortes. Reforca a necessidade de cautela: a associacao existe na literatura mas seu tamanho de efeito e replicabilidade sao incertos. A LLM deve declarar essa incerteza ao mencionar metformina/ATM."
+}

@@ -1,0 +1,67 @@
+{
+  "paciente_id": "ficticio_DB_0001",
+  "camada": "microbioma",
+  "metodo": "sequenciamento 16S rRNA (regiao V4), NGS Illumina (fictício)",
+  "marcadores": [
+    {
+      "nome": "Razão Firmicutes/Bacteroidetes (F/B)",
+      "valor": "6,77 (elevada; referência 0,7-1,0)",
+      "tipo_marcador": "metrica_diversidade",
+      "peso": {
+        "hazard_ratio": 1.20,
+        "ic_95": [1.11, 1.30],
+        "fonte_id": "liu_2024_microbiome",
+        "desfecho": "diabetes tipo 2 incidente",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "Diversidade alfa (índice de Simpson)",
+      "valor": "7,28 (limítrofe; referência > 7)",
+      "tipo_marcador": "metrica_diversidade",
+      "peso": {
+        "hazard_ratio": 0.89,
+        "ic_95": [0.82, 0.96],
+        "fonte_id": "liu_2024_microbiome",
+        "desfecho": "diabetes tipo 2 incidente",
+        "direcao": "risco"
+      }
+    },
+    {
+     "nome": "Proteobacteria (filo) — via disbiose inflamatória",
+      "valor": "13,76% (elevada; desejável < 5%)",
+      "tipo_marcador": "taxon",
+      "peso": {
+        "hazard_ratio": 1.15,
+        "ic_95": [1.05, 1.26],
+        "fonte_id": "gmfh_2026_cardiometabolico",
+        "desfecho": "resistência à insulina",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "Akkermansia muciniphila — via modulação da barreira intestinal",
+      "valor": "16,20% (elevada; referência 1-5%)",
+      "tipo_marcador": "taxon",
+      "peso": {
+        "hazard_ratio": 1.15,
+        "ic_95": [1.05, 1.26],
+        "fonte_id": "gmfh_2026_cardiometabolico",
+        "desfecho": "resistência à insulina",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "Bifidobacterium spp — via perda de proteção",
+      "valor": "0,00% (reduzida; referência 1-6%)",
+      "tipo_marcador": "taxon",
+      "peso": {
+        "hazard_ratio": 1.10,
+        "ic_95": [1.02, 1.19],
+        "fonte_id": "gmfh_2026_cardiometabolico",
+        "desfecho": "resistência à insulina",
+        "direcao": "risco"
+      }
+    }
+  ]
+}

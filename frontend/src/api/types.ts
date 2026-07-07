@@ -16,8 +16,26 @@ export interface Leitura {
   evidencia_insuficiente: string[]
   disclaimer: string
   paciente_id: string
+  integracao_omica: IntegracaoOmica
 }
 
 export interface ListaPacientes {
   pacientes: string[]
+}
+
+export interface Modificador {
+  camada: string
+  marcador: string
+  valor: string
+  hazard_ratio: number
+  ic_95: [number, number]
+  fonte: string
+  desfecho: string
+  direcao: string
+}
+
+export interface IntegracaoOmica {
+  risco_base_genetico: Record<string, number>
+  camadas_presentes: string[]
+  modificadores_por_desfecho: Record<string, Modificador[]>
 }

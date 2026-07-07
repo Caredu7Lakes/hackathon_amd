@@ -1,0 +1,10 @@
+{
+  "id": "cellrepmed_2025_mrs",
+  "titulo": "Escore de risco de metilacao prediz eventos macrovasculares em DM2 (Cell Reports Medicine 2025)",
+  "fonte": "Cell Reports Medicine 2025, 752 individuos com DM2 recem-diagnosticado, PMID 40780200",
+  "eixo": "metilacao-cardiovascular",
+  "gene": "metilacao",
+  "rsid": "mrs_87_sitios",
+  "evidencia": "moderada",
+  "texto": "Um escore de risco de metilacao (MRS) de 87 sitios CpG predisse eventos macrovasculares incidentes em individuos com diabetes tipo 2 com area sob a curva (AUC) de 0,81, e 0,84 combinado a fatores clinicos. Esse desempenho superou escores cardiovasculares estabelecidos (SCORE2-Diabetes, UKPDS, Framingham) e o proprio escore poligenico de doenca arterial coronariana (AUC 0,61). O sitio cg05575921 (gene AHRR, marcador de tabagismo) integra o modelo. O desfecho e evento macrovascular em pessoas que ja tem diabetes tipo 2 — distinto do desfecho de desenvolver diabetes. E um teste de sangue de custo acessivel (~US$200). Importante: a metilacao e dinamica e muda com o ambiente, sendo um retrato de um momento, nao um destino fixo."
+}

@@ -6,10 +6,11 @@ de apoio à decisão clínica.
 """
 
 DISCLAIMER_OBRIGATORIO = (
-    "Este é um protótipo educacional e demonstrativo. As leituras apresentadas "
-    "não constituem aconselhamento médico, diagnóstico ou recomendação de "
-    "tratamento. As associações genéticas utilizadas derivam majoritariamente "
-    "de estudos em populações europeias; sua transferibilidade para a população "
-    "brasileira, altamente miscigenada, é uma limitação reconhecida. Procure "
-    "sempre um profissional de saúde qualificado."
+    "This is an educational and demonstrative prototype. The readings shown "
+    "do not constitute medical advice, diagnosis, or treatment recommendations. "
+    "The genetic associations used derive mostly from studies in European-ancestry "
+    "populations; their transferability to the highly admixed Brazilian population "
+    "is a recognized limitation. Always consult a qualified healthcare professional."
 )
+   
+

@@ -33,6 +33,7 @@ class Settings(BaseSettings):
 
     LAUDOS_DIR: str = "data/laudos"
     CORPUS_DIR: str = "data/corpus"
+    EXAMES_DIR: str = "data/exames"
     FAISS_INDEX_PATH: str = "data/faiss_index"
 
 

@@ -1,0 +1,10 @@
+{
+  "id": "liu_2024_microbiome",
+  "titulo": "Integracao de risco poligenico e metagenomico intestinal (Liu et al., Nature Aging 2024)",
+  "fonte": "Liu et al., Nature Aging 2024, coorte FINRISK 2002 (n~5.297), PMID 38528230",
+  "eixo": "microbioma-doencas",
+  "gene": "microbioma",
+  "rsid": "gut_microbiome_score",
+  "evidencia": "moderada",
+  "texto": "Em coorte prospectiva populacional com ~18 anos de seguimento, um escore de microbioma intestinal associou-se a diabetes tipo 2 incidente com hazard ratio de 1,40 por desvio-padrao isoladamente, e 1,20 (IC 95% 1,11-1,30) apos ajuste para fatores clinicos convencionais. A diversidade alfa (indice de Shannon) mostrou associacao inversa com diabetes incidente (HR 0,89, IC 95% 0,82-0,96). Integrar o escore de microbioma ao risco poligenico melhorou a predicao acima dos fatores convencionais, embora os proprios autores registrem que o ganho incremental foi modesto. O desfecho e diabetes tipo 2 incidente. Limitacao: coorte de ascendencia europeia (finlandesa), transferibilidade limitada a outras populacoes."
+}

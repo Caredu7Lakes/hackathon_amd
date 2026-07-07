@@ -186,3 +186,131 @@ code, .mono {
 @media (prefers-reduced-motion: no-preference) {
   .cruzamento { transition: border-left-color 0.2s; }
 }
+
+/* ---- Segundo ato: integração multi-ômica ---- */
+.omica {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--azul-700);
+}
+.omica-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--azul-900);
+  margin: 0 0 0.3rem;
+}
+.omica-sub {
+  color: var(--cinza-500);
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem;
+}
+.camadas-chips { display: flex; gap: 0.4rem; margin-bottom: 1.5rem; }
+.camada-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--azul-100);
+  color: var(--azul-700);
+}
+
+.desfecho-bloco {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--sombra);
+}
+.desfecho-nome {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cinza-500);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+.modificador {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--cinza-200);
+  flex-wrap: wrap;
+}
+.modificador:first-of-type { border-top: 0; }
+.mod-hr {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--azul-900);
+  min-width: 5.5rem;
+}
+.mod-hr.protecao { color: var(--alta); }
+.mod-info { flex: 1; min-width: 12rem; }
+.mod-marcador { font-size: 0.92rem; }
+.mod-valor { color: var(--cinza-500); font-size: 0.85rem; }
+.mod-meta { display: flex; gap: 0.4rem; align-items: center; margin-top: 0.2rem; }
+.mod-ic { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--cinza-500); }
+.mod-camada {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: var(--insuf-bg);
+  color: var(--insuf);
+}
+
+/* ---- Painel-síntese direcional ---- */
+.sintese-painel {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+.sintese-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--raio);
+  border-left: 4px solid var(--cinza-200);
+  background: var(--branco);
+  box-shadow: var(--sombra);
+}
+.sintese-item.forte    { border-left-color: #b3261e; background: #fdecea; }
+.sintese-item.moderado { border-left-color: var(--moderada); background: var(--moderada-bg); }
+.sintese-item.novo     { border-left-color: var(--azul-700); background: var(--azul-100); }
+.sintese-seta {
+  font-size: 1.5rem;
+  font-weight: 700;
+  min-width: 2rem;
+  text-align: center;
+}
+.sintese-item.forte .sintese-seta    { color: #b3261e; }
+.sintese-item.moderado .sintese-seta { color: var(--moderada); }
+.sintese-item.novo .sintese-seta     { color: var(--azul-700); }
+.sintese-texto { flex: 1; }
+.sintese-desfecho { font-weight: 600; font-size: 0.95rem; color: var(--azul-900); }
+.sintese-rotulo {
+  font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.04em; margin-top: 0.1rem;
+}
+.sintese-item.forte .sintese-rotulo    { color: #b3261e; }
+.sintese-item.moderado .sintese-rotulo { color: var(--moderada); }
+.sintese-item.novo .sintese-rotulo     { color: var(--azul-700); }
+.sintese-detalhe {
+  font-size: 0.78rem; color: var(--cinza-500); margin-top: 0.2rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ---- Painel-síntese: direções divergentes e fator protetor ---- */
+.sintese-item.divergente { border-left-color: #6b5b95; background: #f0edf5; }
+.sintese-item.divergente .sintese-seta   { color: #6b5b95; }
+.sintese-item.divergente .sintese-rotulo { color: #6b5b95; }
+
+.sintese-item.protetor { border-left-color: var(--alta); background: var(--alta-bg); }
+.sintese-item.protetor .sintese-seta   { color: var(--alta); }
+.sintese-item.protetor .sintese-rotulo { color: var(--alta); }

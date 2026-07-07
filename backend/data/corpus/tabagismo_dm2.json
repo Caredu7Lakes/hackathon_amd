@@ -1,0 +1,10 @@
+{
+  "id": "tabagismo_dm2",
+  "titulo": "Tabagismo e risco de diabetes tipo 2 (meta-analise)",
+  "fonte": "Pan et al., meta-analise de 88 estudos prospectivos (~6 milhoes de participantes)",
+  "eixo": "clinico-doencas",
+  "gene": "clinico",
+  "rsid": "tabagismo",
+  "evidencia": "forte",
+  "texto": "Em meta-analise de 88 estudos prospectivos, o risco de diabetes tipo 2 foi 1,37 para fumantes atuais e 1,14 para ex-fumantes, comparados a quem nunca fumou. O efeito do ex-tabagismo persiste por anos apos a cessacao. Desfecho: diabetes tipo 2 incidente."
+}

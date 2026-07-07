@@ -1,0 +1,10 @@
+{
+  "id": "natureaging_2023_dm2_methylation",
+  "titulo": "Escores de metilacao do DNA preveem inicio de DM2 em 10 anos (Nature Aging 2023)",
+  "fonte": "Nature Aging 2023, coortes Generation Scotland (s43587-023-00391-4)",
+  "eixo": "metilacao-doencas",
+  "gene": "metilacao",
+  "rsid": "episcore_dm2_10y",
+  "evidencia": "moderada",
+  "texto": "Modelos baseados em metilacao do DNA em sangue preveram o inicio de diabetes tipo 2 em 10 anos com area sob a curva (AUC) de ate 0,872, mostrando melhora notavel alem dos fatores de risco padrao. A metilacao captura interacoes gene-ambiente e fornece informacao preditiva dinamica: preditores ponderados de CpG explicam proporcao substancial da variancia de fatores modificaveis como indice de massa corporal e colesterol HDL. O desfecho e diabetes tipo 2 incidente em 10 anos. Limitacao: coortes europeias, transferibilidade limitada."
+}

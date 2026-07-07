@@ -8,3 +8,18 @@ services:
     ports:
       - "8000:8000"
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+    volumes:
+      - faiss_index:/app/data/faiss_index
+
+  frontend:
+    build:
+      context: ../frontend
+    container_name: hackathon-amd-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  faiss_index:

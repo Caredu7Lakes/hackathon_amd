@@ -1,0 +1,43 @@
+{
+  "paciente_id": "ficticio_DB_0001",
+  "camada": "metilacao",
+  "metodo": "array de metilação / EWAS (fictício)",
+  "marcadores": [
+    {
+      "nome": "MRS de 87 sítios (escore agregado)",
+      "valor": "elevado",
+      "tipo_marcador": "sitio_cpg",
+      "peso": {
+        "hazard_ratio": 2.10,
+        "ic_95": [1.70, 2.60],
+        "fonte_id": "cellrepmed_2025_mrs",
+        "desfecho": "evento macrovascular em diabetes tipo 2",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "cg05575921 (AHRR, marcador de tabagismo)",
+      "valor": "hipometilado",
+      "tipo_marcador": "sitio_cpg",
+      "peso": {
+        "hazard_ratio": 1.40,
+        "ic_95": [1.20, 1.63],
+        "fonte_id": "cellrepmed_2025_mrs",
+        "desfecho": "evento macrovascular em diabetes tipo 2",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "EpiScore de início de DM2 (10 anos)",
+      "valor": "elevado",
+      "tipo_marcador": "sitio_cpg",
+      "peso": {
+        "hazard_ratio": 1.85,
+        "ic_95": [1.50, 2.28],
+        "fonte_id": "natureaging_2023_dm2_methylation",
+        "desfecho": "diabetes tipo 2 incidente (10 anos)",
+        "direcao": "risco"
+      }
+    }
+  ]
+}

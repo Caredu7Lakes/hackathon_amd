@@ -1,0 +1,43 @@
+{
+  "paciente_id": "ficticio_DB_0001",
+  "camada": "clinico",
+  "metodo": "anamnese clínica estruturada (fictícia)",
+  "marcadores": [
+    {
+      "nome": "Tabagismo (ex-fumante)",
+      "valor": "ex-fumante",
+      "tipo_marcador": "anamnese",
+      "peso": {
+        "hazard_ratio": 1.14,
+        "ic_95": [1.10, 1.18],
+        "fonte_id": "tabagismo_dm2",
+        "desfecho": "diabetes tipo 2 incidente",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "IMC (sobrepeso)",
+      "valor": "25,1 (sobrepeso limítrofe)",
+      "tipo_marcador": "anamnese",
+      "peso": {
+        "hazard_ratio": 2.99,
+        "ic_95": [2.42, 3.72],
+        "fonte_id": "imc_dm2",
+        "desfecho": "diabetes tipo 2 incidente",
+        "direcao": "risco"
+      }
+    },
+    {
+      "nome": "Consumo de álcool (leve a moderado)",
+      "valor": "leve-moderado (faixa protetora, 10-14 g/dia)",
+      "tipo_marcador": "anamnese",
+      "peso": {
+        "hazard_ratio": 0.82,
+        "ic_95": [0.73, 0.95],
+        "fonte_id": "alcool_dm2",
+        "desfecho": "diabetes tipo 2 incidente",
+        "direcao": "protecao"
+      }
+    }
+  ]
+}

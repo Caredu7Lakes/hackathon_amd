@@ -13,37 +13,50 @@ from app.core.logging_config import get_logger
 from app.rag.store import buscar
 from app.schemas.paciente import PacienteLaudo
 from app.services.leitura_service import carregar_laudo
+from app.services.exames_service import carregar_exames
+from app.services.integracao_service import integrar
 
 logger = get_logger(__name__)
 
-SYSTEM_PROMPT = """Voce e um assistente que faz LEITURA CRUZADA de laudos geneticos \
-no eixo cardiometabolico, cruzando os paineis Doencas, Farma e Fit.
+SYSTEM_PROMPT = """You are an assistant that performs CROSS-READING of genetic \
+reports on the cardiometabolic axis, cross-linking the Diseases, Pharma, and Fit panels.
 
-REGRAS DE GROUNDING (obrigatorias):
-- Voce SO pode afirmar associacoes que estejam explicitamente no CONTEXTO fornecido \
-(laudo do paciente + trechos de literatura recuperados).
-- Se o contexto nao sustentar uma associacao, escreva 'evidencia insuficiente' para \
-aquele ponto. NUNCA invente numeros, genes ou associacoes.
-- Para cada afirmacao de cruzamento, cite a fonte (id do trecho de literatura ou \
-'laudo' quando vier do laudo do paciente) no campo 'fontes'.
-- Respeite a forca de evidencia: conectores marcados como 'forte' podem ser afirmados \
-com mais confianca; 'forte-fenotipo' (ex.: CHRM2) devem ser apresentados como brandos, \
-explicitando que a ponte genotipo-fenotipo e fraca; 'moderada-inconsistente' (ex.: ATM/\
-metformina) devem declarar a incerteza de replicacao.
-- NAO de recomendacao clinica nem de conduta. Isto e leitura educacional.
+Respond entirely in ENGLISH (the "resumo", each "afirmacao", and each \
+"evidencia_insuficiente" item must be written in English).
 
-FORMATO DE SAIDA (obrigatorio): responda APENAS com um objeto JSON valido, sem \
-texto antes ou depois, sem blocos de codigo, com esta estrutura:
+GROUNDING RULES (mandatory):
+- You may ONLY state associations that are explicitly present in the provided CONTEXT \
+(patient report + retrieved literature excerpts).
+- If the context does not support an association, write it under 'evidencia_insuficiente' \
+for that point. NEVER invent numbers, genes, or associations.
+- For each cross-link claim, cite the source (the literature excerpt id, or 'laudo' when \
+it comes from the patient report) in the 'fontes' field.
+- Respect the strength of evidence: connectors marked 'forte' may be stated with more \
+confidence; 'forte-fenotipo' (e.g. CHRM2) must be presented as tentative, making explicit \
+that the genotype-phenotype bridge is weak; 'moderada-inconsistente' (e.g. ATM/metformin) \
+must declare the replication uncertainty.
+- Do NOT give clinical or conduct recommendations. This is educational reading.
+- The ANAMNESE section carries the patient's clinical facts (e.g. smoking, BMI). You may \
+acknowledge them as factual context and must NOT list them under 'evidencia_insuficiente'. \
+However, do NOT interpret or assign weight to these facts — the quantitative weight is \
+computed separately by the system, outside your task.
+
+OUTPUT FORMAT (mandatory): respond ONLY with a valid JSON object, with no text before \
+or after, no code blocks, with this structure:
 {
-  "resumo": "string - leitura cruzada em linguagem natural",
+  "resumo": "string - the cross-reading in natural language (English)",
   "cruzamentos": [
-    {"afirmacao": "string", "fontes": ["string"], "confianca": "alta|moderada|baixa"}
+    {"afirmacao": "string (English)", "fontes": ["string"], "confianca": "alta|moderada|baixa"}
   ],
-  "evidencia_insuficiente": ["string - pontos sem cobertura no contexto"]
-}"""
+  "evidencia_insuficiente": ["string (English) - points without coverage in the context"]
+}
+
+IMPORTANT: the JSON keys and the "confianca" values ("alta", "moderada", "baixa") must \
+remain exactly as shown — do not translate the keys or the confidence values, only the \
+free-text content."""
 
 
-def _montar_contexto(laudo: PacienteLaudo, chunks: list[dict]) -> str:
+def _montar_contexto(laudo: PacienteLaudo, chunks: list[dict], exames: list | None = None) -> str:
     linhas = ["=== LAUDO DO PACIENTE (eixo cardiometabolico) ==="]
     for d in laudo.doencas:
         linhas.append(f"[Doenca] {d.doenca}: risco {d.risco_percentual}% ({d.faixa})")
@@ -51,6 +64,19 @@ def _montar_contexto(laudo: PacienteLaudo, chunks: list[dict]) -> str:
         linhas.append(f"[Farma] {f.farmaco}: {f.interpretacao}")
     for t in laudo.fit:
         linhas.append(f"[Fit] {t.caracteristica}: {t.interpretacao}")
+
+    # Fatos clinicos da anamnese (camada clinica). Entram como CONTEXTO factual:
+    # a LLM pode reconhecer que existem, mas nao interpreta nem atribui peso —
+    # o peso e tratado pelo motor deterministico, nao aqui.
+    fatos_clinicos = [
+        m for e in (exames or []) if getattr(e, "camada", None) == "clinico"
+        for m in e.marcadores
+    ]
+    if fatos_clinicos:
+        linhas.append("\n=== ANAMNESE (fatos clinicos do paciente) ===")
+        for m in fatos_clinicos:
+            linhas.append(f"[Clinico] {m.nome}: {m.valor}")
+
     linhas.append("\n=== LITERATURA RECUPERADA ===")
     for c in chunks:
         if c.get("tipo") == "corpus":
@@ -71,12 +97,18 @@ def gerar_leitura(paciente_id: str, llm: LLMClient | None = None) -> dict:
     termos = "diabetes tipo 2 doenca arterial coronariana metformina estatina FTO obesidade recuperacao cardiaca"
     chunks = buscar(termos, k=6)
 
-    contexto = _montar_contexto(laudo, chunks)
+    # Carrega os exames antes, para a anamnese entrar no contexto da LLM.
+    exames = carregar_exames(paciente_id)
+
+    contexto = _montar_contexto(laudo, chunks, exames)
     user = f"CONTEXTO:\n{contexto}\n\nProduza a leitura cruzada do paciente {paciente_id}."
 
     resultado = llm.gerar_json(SYSTEM_PROMPT, user)
 
     _validar_saida(resultado)
+
+    # Segundo cruzamento (ETAPA 3): integracao multi-omica deterministica.
+    resultado["integracao_omica"] = integrar(laudo, exames)
 
     resultado["disclaimer"] = DISCLAIMER_OBRIGATORIO
     resultado["paciente_id"] = paciente_id

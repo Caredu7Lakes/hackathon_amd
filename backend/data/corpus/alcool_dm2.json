@@ -1,0 +1,10 @@
+{
+  "id": "alcool_dm2",
+  "titulo": "Consumo de alcool e risco de diabetes tipo 2 (relacao em J)",
+  "fonte": "Meta-analise dose-resposta de 38 estudos (>1,9 milhao de individuos)",
+  "eixo": "clinico-doencas",
+  "gene": "clinico",
+  "rsid": "alcool",
+  "evidencia": "moderada",
+  "texto": "A relacao entre alcool e diabetes tipo 2 e nao-linear (em J). Consumo leve a moderado associa-se a MENOR risco, com pico de reducao de 18% entre 10-14 g/dia, efeito possivelmente especifico de mulheres. Consumo pesado (acima de 63 g/dia) inverte o efeito, elevando o risco cardiovascular. Desfecho: diabetes tipo 2 incidente."
+}

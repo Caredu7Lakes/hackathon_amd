@@ -1,0 +1,10 @@
+{
+  "id": "imc_dm2",
+  "titulo": "IMC elevado e risco de diabetes tipo 2 (meta-analise dose-resposta)",
+  "fonte": "Meta-analise de 18 coortes prospectivas",
+  "eixo": "clinico-doencas",
+  "gene": "clinico",
+  "rsid": "imc_elevado",
+  "evidencia": "forte",
+  "texto": "O risco de diabetes tipo 2 aumenta cerca de 1,18 por unidade de IMC. Para sobrepeso (IMC 25-29,9) o risco relativo e de aproximadamente 2,99 comparado ao peso normal. Desfecho: diabetes tipo 2 incidente."
+}

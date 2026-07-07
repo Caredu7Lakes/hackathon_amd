@@ -1,0 +1,10 @@
+{
+  "id": "respiratorio_dm2",
+  "titulo": "Asma e bronquite cronica/DPOC e risco de diabetes tipo 2 em mulheres",
+  "fonte": "Women's Health Study (coorte de 38.570 mulheres)",
+  "eixo": "clinico-doencas",
+  "gene": "clinico",
+  "rsid": "respiratorio",
+  "evidencia": "moderada",
+  "texto": "Em coorte prospectiva de mulheres, o risco de diabetes tipo 2 foi 1,37 para asma e 1,38 para DPOC/bronquite cronica sem asma, comparado a mulheres sem essas condicoes. Desfecho: diabetes tipo 2 incidente."
+}

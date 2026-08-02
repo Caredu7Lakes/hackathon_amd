@@ -5,9 +5,9 @@ import type { Confianca, Modificador } from './api/types'
 import './App.css'
 
 const rotuloConfianca: Record<Confianca, string> = {
-  alta: 'high confidence',
-  moderada: 'moderate confidence',
-  baixa: 'low confidence',
+  alta: 'confiança alta',
+  moderada: 'confiança moderada',
+  baixa: 'confiança baixa',
 }
 
 type Sintese = { desfecho: string; rotulo: string; classe: string; detalhe: string }
@@ -31,25 +31,25 @@ function sintetizar(
     let rotulo: string
     let classe: string
     if (!noBase) {
-      rotulo = 'new axis revealed'
+      rotulo = 'novo eixo revelado'
       classe = 'novo'
     } else if (risco.length > 0 && protecao.length > 0) {
-      rotulo = 'divergent forces'
+      rotulo = 'forças divergentes'
       classe = 'divergente'
     } else if (protecao.length > 0) {
-      rotulo = 'protective factor'
+      rotulo = 'fator protetor'
       classe = 'protetor'
     } else if (risco.length >= 2 && maxHr >= 1.5) {
-      rotulo = 'strongly reinforced risk'
+      rotulo = 'risco fortemente reforçado'
       classe = 'forte'
     } else {
-      rotulo = 'reinforced risk'
+      rotulo = 'risco reforçado'
       classe = 'moderado'
     }
 
     const detalhe = noBase
-      ? `base risk ${valorBase.toFixed(2)}% · ${lista.length} modifier(s) · max HR ${maxHr.toFixed(2)}`
-      : `not present in the genetic reading alone · max HR ${maxHr.toFixed(2)}`
+      ? `risco base ${valorBase.toFixed(2)}% · ${lista.length} modificador(es) · HR máx ${maxHr.toFixed(2)}`
+      : `não presente apenas na leitura genética · HR máx ${maxHr.toFixed(2)}`
     return { desfecho, rotulo, classe, detalhe }
   })
 }
@@ -64,19 +64,19 @@ export default function App() {
       <header className="app-header">
         <h1>GenRisk</h1>
         <p className="subtitulo">
-          Cross-reading of genetic reports — cardiometabolic axis
+          Leitura cruzada de laudos genéticos — eixo cardiometabólico
         </p>
       </header>
 
       <section className="seletor">
-        <label htmlFor="paciente">Patient:</label>
+        <label htmlFor="paciente">Paciente:</label>
         <select
           id="paciente"
           value={pacienteId ?? ''}
           onChange={(e) => setPacienteId(e.target.value || null)}
           disabled={pacientes.isLoading || pacientes.isError}
         >
-          <option value="">— select —</option>
+          <option value="">— selecione —</option>
           {pacientes.data?.pacientes.map((id) => (
             <option key={id} value={id}>
               {id}
@@ -84,36 +84,36 @@ export default function App() {
           ))}
         </select>
         {pacientes.isError && (
-          <span className="erro-inline">Failed to load the patient list.</span>
+          <span className="erro-inline">Falha ao carregar a lista de pacientes.</span>
         )}
       </section>
 
       <main>
         {pacienteId === null && (
-          <p className="vazio">Select a patient to see the cross-reading.</p>
+          <p className="vazio">Selecione um paciente para ver a leitura cruzada.</p>
         )}
         {pacienteId !== null && leitura.isLoading && (
           <p className="carregando">
-            Generating cross-reading… the first request may take a few seconds.
+            Gerando leitura cruzada… a primeira requisição pode levar alguns segundos.
           </p>
         )}
 
         {leitura.isError && (
           <p className="erro">
             {leitura.error instanceof ApiError && leitura.error.status === 404
-              ? 'Patient not found.'
+              ? 'Paciente não encontrado.'
               : leitura.error instanceof ApiError && leitura.error.status === 502
-                ? 'Could not generate a valid reading for this patient.'
-                : 'Failed to generate the reading. Check whether the backend is running.'}
+                ? 'Não foi possível gerar uma leitura válida para este paciente.'
+                : 'Falha ao gerar a leitura. Verifique se o backend está rodando.'}
           </p>
         )}
 
         {leitura.data && (
           <article className="leitura">
-            <h2>Summary</h2>
+            <h2>Resumo</h2>
             <p>{leitura.data.resumo}</p>
 
-            <h2>Cross-links</h2>
+            <h2>Cruzamentos</h2>
             <ul className="cruzamentos">
               {leitura.data.cruzamentos.map((c, i) => (
                 <li key={i} className={`cruzamento ${c.confianca}`}>
@@ -132,7 +132,7 @@ export default function App() {
 
             {leitura.data.evidencia_insuficiente.length > 0 && (
               <section className="evidencia-insuf">
-                <h2>Insufficient evidence</h2>
+                <h2>Evidência insuficiente</h2>
                 <ul>
                   {leitura.data.evidencia_insuficiente.map((e, i) => (
                     <li key={i}>{e}</li>
@@ -143,11 +143,11 @@ export default function App() {
 
             {leitura.data.integracao_omica.camadas_presentes.length > 0 && (
               <section className="omica">
-                <h2 className="omica-titulo">Multi-omic re-reading</h2>
+                <h2 className="omica-titulo">Releitura multiômica</h2>
                 <p className="omica-sub">
-                  Additional layers reconfigure the patient's reading. Each modifier
-                  carries its published weight, confidence interval, source, and outcome —
-                  the base genetic risk stays intact, read alongside.
+                  Camadas adicionais reconfiguram a leitura do paciente. Cada modificador
+                  carrega seu peso publicado, intervalo de confiança, fonte e desfecho —
+                  o risco genético base permanece intacto, lido em paralelo.
                 </p>
 
                 <div className="camadas-chips">
@@ -197,7 +197,7 @@ export default function App() {
                             </div>
                             <div className="mod-meta">
                               <span className="mod-ic">
-                                CI95 {m.ic_95[0].toFixed(2)}–{m.ic_95[1].toFixed(2)}
+                                IC95 {m.ic_95[0].toFixed(2)}–{m.ic_95[1].toFixed(2)}
                               </span>
                               <span className="fonte-chip">{m.fonte}</span>
                               <span className="mod-camada">{m.camada}</span>

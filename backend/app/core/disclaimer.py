@@ -1,17 +1,17 @@
-"""Disclaimer obrigatório.
+"""Mandatory disclaimer.
 
-Decisão de governança (ETAPA 0, seção 5): toda saída do modelo carrega este
-aviso. O projeto é um protótipo educacional/demonstrativo e NÃO é ferramenta
-de apoio à decisão clínica.
+Governance decision (STAGE 0, section 5): every model output carries this
+notice. The project is an educational/demonstrative prototype and is NOT a
+clinical decision support tool.
 """
 
 DISCLAIMER_OBRIGATORIO = (
-    "Este é um protótipo educacional e demonstrativo. As leituras apresentadas "
-    "não constituem aconselhamento médico, diagnóstico ou recomendação de tratamento. "
-    "As associações genéticas utilizadas derivam majoritariamente de estudos em "
-    "populações de ancestralidade europeia; sua transferibilidade para a população "
-    "brasileira, altamente miscigenada, é uma limitação reconhecida. Consulte sempre "
-    "um profissional de saúde qualificado."
+    "This is an educational and demonstrative prototype. The readings presented "
+    "do not constitute medical advice, diagnosis, or treatment recommendation. "
+    "The genetic associations used derive mostly from studies in "
+    "populations of European ancestry; their transferability to the "
+    "Brazilian population, highly admixed, is a recognized limitation. Always consult "
+    "a qualified healthcare professional."
 )
    
 

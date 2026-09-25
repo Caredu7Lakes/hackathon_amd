@@ -26,7 +26,7 @@ def carregar_laudo(paciente_id: str) -> PacienteLaudo:
     caminho = Path(settings.LAUDOS_DIR) / f"paciente_{paciente_id}.json"
     if not caminho.exists():
         raise LaudoNaoEncontradoError(
-            f"Laudo nao encontrado para paciente_id='{paciente_id}' em {caminho}"
+            f"Report not found for paciente_id='{paciente_id}' at {caminho}"
         )
     dados = json.loads(caminho.read_text(encoding="utf-8"))
     return PacienteLaudo.model_validate(dados)

@@ -23,7 +23,7 @@ async def lifespan(app: FastAPI):
     logger.info("Encerrando hackathon_amd")
 
 
-app = FastAPI(title="hackathon_amd", version="0.3.0", lifespan=lifespan)
+app = FastAPI(title="GenRisk", version="0.3.0", lifespan=lifespan)
 app.include_router(leitura_router)
 
 

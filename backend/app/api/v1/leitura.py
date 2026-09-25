@@ -26,5 +26,5 @@ def leitura(paciente_id: str) -> dict:
     except LaudoNaoEncontradoError as e:
         raise HTTPException(status_code=404, detail=str(e)) from e
     except ValueError as e:
-        logger.warning("Falha de contrato na leitura de %s: %s", paciente_id, e)
-        raise HTTPException(status_code=502, detail="Falha ao gerar leitura valida") from e
+        logger.warning("Contract failure in reading for %s: %s", paciente_id, e)
+        raise HTTPException(status_code=502, detail="Failed to generate valid reading") from e

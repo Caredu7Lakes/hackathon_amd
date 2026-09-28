@@ -14,5 +14,8 @@ RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTr
 
 COPY . .
 
+# Constrói o índice FAISS no build (corpus estático, ~0.06 MB) — elimina o ingest de 2 min no boot.
+RUN python -m app.rag.ingest
+
 RUN chmod +x entrypoint.sh
 CMD ["./entrypoint.sh"]

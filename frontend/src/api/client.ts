@@ -1,5 +1,7 @@
 import type { Leitura, ListaPacientes } from './types'
 
+const API_BASE = import.meta.env.VITE_API_URL ?? ''
+
 // Erro de API com status, para a UI distinguir 404 de 502 de falha de rede.
 export class ApiError extends Error {
   status: number
@@ -29,7 +31,7 @@ async function getJson<T>(url: string, signal?: AbortSignal): Promise<T> {
 }
 
 export function fetchPacientes(signal?: AbortSignal): Promise<ListaPacientes> {
-  return getJson<ListaPacientes>('/api/v1/pacientes', signal)
+  return getJson<ListaPacientes>(`${API_BASE}/api/v1/pacientes`, signal)
 }
 
 export function fetchLeitura(
@@ -37,7 +39,8 @@ export function fetchLeitura(
   signal?: AbortSignal,
 ): Promise<Leitura> {
   return getJson<Leitura>(
-    `/api/v1/leitura/${encodeURIComponent(pacienteId)}`,
+    `${API_BASE}/api/v1/leitura/${encodeURIComponent(pacienteId)}`,
     signal,
   )
 }
+

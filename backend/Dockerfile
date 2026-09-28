@@ -1,5 +1,11 @@
 FROM python:3.12-slim
 WORKDIR /app
+
+# Dependências de sistema para compilar cyvcf2 (htslib).
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential libcurl4-openssl-dev zlib1g-dev libbz2-dev liblzma-dev libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -8,6 +14,5 @@ RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTr
 
 COPY . .
 
-# Torna o entrypoint executável e o define como ponto de entrada.
 RUN chmod +x entrypoint.sh
 CMD ["./entrypoint.sh"]

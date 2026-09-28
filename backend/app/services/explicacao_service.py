@@ -15,6 +15,7 @@ from app.schemas.paciente import PacienteLaudo
 from app.services.leitura_service import carregar_laudo
 from app.services.exames_service import carregar_exames
 from app.services.integracao_service import integrar
+from app.services.anamnese_service import gerar_cruzamento_clinico
 
 logger = get_logger(__name__)
 
@@ -108,7 +109,15 @@ def gerar_leitura(paciente_id: str, llm: LLMClient | None = None) -> dict:
     _validar_saida(resultado)
 
     # Segundo cruzamento (ETAPA 3): integracao multi-omica deterministica.
+
     resultado["integracao_omica"] = integrar(laudo, exames)
+
+    # Terceiro cruzamento: anamnese × exames clínicos (deterministico, LOINC).
+
+   
+    cruzamento = gerar_cruzamento_clinico(paciente_id)
+    if cruzamento is not None:
+        resultado["cruzamento_clinico"] = cruzamento
 
     resultado["disclaimer"] = DISCLAIMER_OBRIGATORIO
     resultado["paciente_id"] = paciente_id

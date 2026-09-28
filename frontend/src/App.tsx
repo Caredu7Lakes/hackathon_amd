@@ -113,6 +113,47 @@ export default function App() {
             <h2>Summary</h2>
             <p>{leitura.data.resumo}</p>
 
+            {leitura.data.cruzamento_clinico && (
+              <section className="cruzamento-clinico">
+                <h2>Clinical cross-check</h2>
+                <p className="cc-sub">
+                  Anamnesis compared against lab findings (LOINC-coded) by
+                  deterministic rule. Discrepancies are review flags, not diagnoses.
+                </p>
+
+                {leitura.data.cruzamento_clinico.classificacoes.length > 0 && (
+                  <div className="cc-classes">
+                    {leitura.data.cruzamento_clinico.classificacoes.map((c, i) => (
+                      <span key={i} className={`cc-chip ${c.rotulo}`}>
+                        {c.marcador}: {c.valor} → {c.rotulo}{' '}
+                        <em>({c.corte_fonte})</em>
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="cc-list">
+                  {leitura.data.cruzamento_clinico.cruzamentos.map((x, i) => (
+                    <div key={i} className={`cc-item ${x.tipo}`}>
+                      <span className="cc-badge">
+                        {x.tipo === 'discrepancia' ? '⚠ discrepancy' : '✓ concordance'}
+                      </span>
+                      <div className="cc-body">
+                        <div className="cc-domain">{x.dominio}</div>
+                        <div className="cc-compare">
+                          <span>anamnesis: {x.anamnese}</span>
+                          <span>exam: {x.exame}</span>
+                        </div>
+                        <div className="cc-msg">{x.mensagem}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="cc-note">{leitura.data.cruzamento_clinico.nota}</p>
+              </section>
+            )}
+
             <h2>Cross-references</h2>
             <ul className="cruzamentos">
               {leitura.data.cruzamentos.map((c, i) => (

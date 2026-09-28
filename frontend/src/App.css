@@ -6,9 +6,9 @@
   --azul-700: #1456a0;   /* acento primario */
   --azul-100: #e8f0fa;   /* fundos suaves */
   --branco:   #ffffff;
-  --cinza-50: #f7f9fc;   /* fundo da pagina */
+  --cinza-50: #6888b8;   /* fundo da pagina */
   --cinza-200:#dde3ea;   /* bordas */
-  --cinza-500:#5b6876;   /* texto secundario */
+  --cinza-500:#77c94a;   /* texto secundario */
 
   --alta:      #1f7a4d;  /* verde sobrio — confianca alta */
   --alta-bg:   #e7f3ec;
@@ -314,3 +314,94 @@ code, .mono {
 .sintese-item.protetor { border-left-color: var(--alta); background: var(--alta-bg); }
 .sintese-item.protetor .sintese-seta   { color: var(--alta); }
 .sintese-item.protetor .sintese-rotulo { color: var(--alta); }
+
+
+.cruzamento-clinico {
+  margin: 1.5rem 0;
+}
+
+.cc-sub {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 0.75rem;
+}
+
+.cc-classes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.cc-chip {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(127, 127, 127, 0.15);
+  border: 1px solid rgba(127, 127, 127, 0.3);
+}
+
+.cc-chip.pre_diabetes,
+.cc-chip.hipertensao { border-color: #d9a000; }
+.cc-chip.diabetes { border-color: #d64545; }
+.cc-chip em { opacity: 0.6; font-style: normal; }
+
+.cc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cc-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  background: rgba(127, 127, 127, 0.08);
+}
+
+.cc-item.discrepancia {
+  border-left-color: #d64545;
+  background: rgba(214, 69, 69, 0.08);
+}
+
+.cc-item.concordancia {
+  border-left-color: #3fa34d;
+  background: rgba(63, 163, 77, 0.08);
+}
+
+.cc-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cc-item.discrepancia .cc-badge { color: #d64545; }
+.cc-item.concordancia .cc-badge { color: #3fa34d; }
+
+.cc-domain {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 0.25rem;
+}
+
+.cc-compare {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.cc-msg {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.cc-note {
+  font-size: 0.78rem;
+  opacity: 0.6;
+  margin-top: 0.75rem;
+  font-style: italic;
+}

@@ -36,6 +36,9 @@ class Settings(BaseSettings):
     EXAMES_DIR: str = "data/exames"
     FAISS_INDEX_PATH: str = "data/faiss_index"
 
+    ANAMNESE_DIR: str = "data/anamnese"
+    FHIR_DIR: str = "data/fhir"
+
 
 @lru_cache
 def get_settings() -> Settings:

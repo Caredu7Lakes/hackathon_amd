@@ -17,6 +17,7 @@ export interface Leitura {
   disclaimer: string
   paciente_id: string
   integracao_omica: IntegracaoOmica
+  cruzamento_clinico?: CruzamentoClinico
 }
 
 export interface ListaPacientes {
@@ -38,4 +39,28 @@ export interface IntegracaoOmica {
   risco_base_genetico: Record<string, number>
   camadas_presentes: string[]
   modificadores_por_desfecho: Record<string, Modificador[]>
+}
+
+// --- Cruzamento clinico (anamnese × exame, LOINC) ---
+
+export interface ClassificacaoClinica {
+  loinc: string
+  marcador: string
+  valor: number
+  rotulo: string
+  corte_fonte: string
+}
+
+export interface CruzamentoClinicoItem {
+  tipo: 'concordancia' | 'discrepancia'
+  dominio: string
+  anamnese: string
+  exame: string
+  mensagem: string
+}
+
+export interface CruzamentoClinico {
+  classificacoes: ClassificacaoClinica[]
+  cruzamentos: CruzamentoClinicoItem[]
+  nota: string
 }

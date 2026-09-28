@@ -1,0 +1,42 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [
+            {"system": "http://loinc.org", "code": "1558-6", "display": "Fasting glucose"}
+          ]
+        },
+        "valueQuantity": {"value": 118, "unit": "mg/dL"}
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [
+            {"system": "http://loinc.org", "code": "8480-6", "display": "Systolic blood pressure"}
+          ]
+        },
+        "valueQuantity": {"value": 148, "unit": "mmHg"}
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [
+            {"system": "http://loinc.org", "code": "8462-4", "display": "Diastolic blood pressure"}
+          ]
+        },
+        "valueQuantity": {"value": 92, "unit": "mmHg"}
+      }
+    }
+  ]
+}

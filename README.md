@@ -108,6 +108,30 @@ On AMD Developer Cloud (ROCm), the same command detects the AMD GPU and produces
 | `FHIR_DIR` | FHIR bundles directory |
 | `FAISS_INDEX_PATH` | FAISS index path |
 
+## Live deployment
+
+GenRisk runs as a two-host deployment:
+
+- **Backend** — containerized FastAPI on Render (US East region), built from `backend/Dockerfile`. The FAISS index is built into the image at build time, so the service boots without a cold-start ingest.
+- **Frontend** — static Vite build on Vercel, pointed at the backend through the `VITE_API_URL` environment variable.
+
+The backend is reachable over HTTPS and CORS-restricted to the deployed frontend origin. The live URL is provided on request rather than published here: the endpoint calls the Anthropic API on every reading and therefore consumes credits, so it is not exposed to automated discovery. To run your own instance, follow the Setup section above.
+
+> Note: on a free-tier host the backend spins down after inactivity, so the first request after an idle period may take up to ~50 s to wake the container. Subsequent requests are immediate.
+
+### Environment variables (deployment)
+
+Beyond the local variables listed above, the deployed backend sets:
+
+| Variable | Value | Purpose |
+|---|---|---|
+| `LLM_PROVIDER` | `anthropic` | Use the Anthropic API directly (no AWS profile needed off-AWS) |
+| `LLM_API_KEY` | *(secret)* | Anthropic API key, injected as an environment secret |
+| `ENVIRONMENT` | `production` | Runtime environment |
+| `CORS_ORIGINS` | *(frontend origin)* | Restricts cross-origin calls to the deployed frontend |
+
+The frontend sets `VITE_API_URL` to the backend's public URL at build time.
+
 ## Disclaimer
 
 This is an educational prototype. The genetic associations used derive mostly from European-ancestry studies; transferability to the highly admixed Brazilian population is a recognized limitation. Always consult a qualified healthcare professional.

@@ -6,6 +6,7 @@ Registra a rota de leitura cruzada (Sprint 3). LLM via API Anthropic direta (cam
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.leitura import router as leitura_router
 from app.core.config import get_settings
@@ -24,6 +25,16 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="GenRisk", version="0.3.0", lifespan=lifespan)
+
+# CORS: libera o frontend (origens vindas de CORS_ORIGINS, separadas por virgula).
+origens = [o.strip() for o in get_settings().CORS_ORIGINS.split(",") if o.strip()]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origens,
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
+
 app.include_router(leitura_router)
 
 

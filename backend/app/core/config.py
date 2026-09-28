@@ -35,6 +35,7 @@ class Settings(BaseSettings):
     CORPUS_DIR: str = "data/corpus"
     EXAMES_DIR: str = "data/exames"
     FAISS_INDEX_PATH: str = "data/faiss_index"
+    CORS_ORIGINS: str = "http://localhost:5173"
 
     ANAMNESE_DIR: str = "data/anamnese"
     FHIR_DIR: str = "data/fhir"

@@ -21,7 +21,7 @@ class Settings(BaseSettings):
         env_file=".env", env_file_encoding="utf-8", extra="ignore"
     )
 
-    ENVIRONMENT: Environment
+    ENVIRONMENT: Environment = Environment.PRODUCTION
 
     LLM_PROVIDER: str = "bedrock"
 
